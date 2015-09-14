@@ -11,18 +11,20 @@ else
   puppet config set --section master autosign  true
   echo '*.development.vbox' > /etc/puppet/autosign.conf
   
-  # Make environment - development & transfer site.pp; transfer custom global-env role and profile modules (all included in project repo)
+  # Make dev env & transfer site.pp; transfer custom global role, profile and modified nodejs modules (all included in project repo)
   mkdir -p /etc/puppet/environments/development/{manifests,modules}
   cp /vagrant/development/manifests/site.pp /etc/puppet/environments/development/manifests
-  cp -r /vagrant/modules/{role,profile} /etc/puppet/modules
+  cp -r /vagrant/modules/{role,profile,nodejs} /etc/puppet/modules
   
   # Install shared modules from Puppet Forge
   sudo puppet module install -i /etc/puppet/modules treydock-gpg_key    
   sudo puppet module install -i /etc/puppet/modules puppetlabs-apache
+  sudo puppet module install -i /etc/puppet/modules mayflower-php
  
-  # Install environment - development specific modules from Puppet Forge
-  sudo puppet module install --environment development puppetlabs-nodejs 
+  # Install dev env specific modules from Puppet Forge
+  #sudo puppet module install --environment development puppetlabs-nodejs 
   
   /usr/bin/puppet resource service iptables ensure=stopped enable=false
   /usr/bin/puppet resource service puppetmaster ensure=running enable=true  
+  
 fi

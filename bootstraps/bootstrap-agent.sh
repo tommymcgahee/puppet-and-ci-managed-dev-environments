@@ -20,9 +20,11 @@ else
   # Request cert
   sudo puppet agent -t
   
-  # Build Grunt project binaries specific to VM OS 
-  # Multiple binaries can co-exist and one set per OS that wants to run Grunt is needed - In my case, I need one for OS X (my dev machine) and one for CentOS (VM)  
+  # Build node-sass binaries for Linux if project exists
+  # Multiple OS binaries can co-exist - In my case, I need one for OS X (my dev machine) and one for CentOS (VM)  
   
-  
-  
+  if [ -d /vagrant/www/node_modules ] ; then
+	  cd /vagrant/www/node_modules/node-sass/vendor
+	  npm install
+  fi
 fi
