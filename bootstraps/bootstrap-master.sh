@@ -17,6 +17,7 @@ else
   cp -r /vagrant/modules/{role,profile,nodejs} /etc/puppet/modules
   
   # Install shared modules from Puppet Forge
+  sudo puppet module install -i /etc/puppet/modules puppetlabs-ntp
   sudo puppet module install -i /etc/puppet/modules treydock-gpg_key    
   sudo puppet module install -i /etc/puppet/modules puppetlabs-apache
   sudo puppet module install -i /etc/puppet/modules mayflower-php

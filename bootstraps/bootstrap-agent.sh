@@ -15,7 +15,7 @@ else
   /usr/bin/puppet resource service iptables ensure=stopped enable=false
   
   # Change directories to Grunt project folder for Vagrant user on shell start
-  echo "cd /vagrant/www/" >> /home/vagrant/.bash_profile
+  echo "cd /vagrant/www/app" >> /home/vagrant/.bash_profile
       
   # Request cert
   #sudo puppet agent -t

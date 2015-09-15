@@ -18,11 +18,17 @@ class profile::web-server {
 
 class profile::grunt-foundation {
 
-   ## CentOS 6 includes node.js 0.10.x and we need 0.12.x   
+   ## CentOS 6 includes node.js 0.10.x and we need 0.12.x  
+
+   package { 'git':
+      ensure   => 'present',
+      provider => 'yum',
+      before   => Package['nodejs-0.12.7-1nodesource.el6.x86_64'],
+   } 
 
    package { 'nodejs-0.12.7-1nodesource.el6.x86_64': 
-      provider =>  'rpm', 
       ensure   =>  'present',
+      provider =>  'rpm',
       source   =>  'https://rpm.nodesource.com/pub_0.12/el/6/x86_64/nodejs-0.12.7-1nodesource.el6.x86_64.rpm',
    }
 
