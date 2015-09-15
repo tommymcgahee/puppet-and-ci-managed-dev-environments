@@ -18,12 +18,12 @@ else
   echo "cd /vagrant/www/" >> /home/vagrant/.bash_profile
       
   # Request cert
-  sudo puppet agent -t
+  #sudo puppet agent -t
   
   # Build node-sass binaries for Linux if project exists
   # Multiple OS binaries can co-exist - In my case, I need one for OS X (my dev machine) and one for CentOS (VM)  
   
-  if [ -d /vagrant/www/node_modules ] ; then
+  if [ -d /vagrant/www/node_modules ] && which npm > /dev/null 2>&1; then
 	  cd /vagrant/www/node_modules/node-sass/vendor
 	  npm install
   fi
