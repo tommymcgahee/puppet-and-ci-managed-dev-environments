@@ -14,17 +14,25 @@ else
   # Disable firewall for now
   /usr/bin/puppet resource service iptables ensure=stopped enable=false
   
+  # Set hostnames and IPs
+  echo '192.168.50.2  puppetmaster.development.vbox  puppetmaster' | sudo tee --append /etc/hosts 2> /dev/null && \
+  echo '192.168.50.3  tommys-mbp.development.vbox    tommys-mbp'   | sudo tee --append /etc/hosts 2> /dev/null && \
+  
   # Change directories to Grunt project folder for Vagrant user on shell start
   echo "cd /vagrant/www/app" >> /home/vagrant/.bash_profile
       
   # Request cert
-  #sudo puppet agent -t
-  
-  # Build node-sass binaries for Linux if project exists
-  # Multiple OS binaries can co-exist - In my case, I need one for OS X (my dev machine) and one for CentOS (VM)  
+  sudo puppet resource service puppet ensure=running enable=true
   
   if [ -d /vagrant/www/node_modules ] && which npm > /dev/null 2>&1; then
+
+	  # Build node-sass binaries for Linux if project exists
+	  # Multiple OS binaries can co-exist - In my case, I need one for OS X (my local dev machine) and one for CentOS (VM)  
 	  cd /vagrant/www/node_modules/node-sass/vendor
 	  npm install
-  fi
+	  
+	  # Start Grunt task on server
+	  cd /vagrant/www/app
+	  grunt
+  fi  
 fi
