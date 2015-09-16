@@ -18,7 +18,7 @@ else
   # Make dev env & transfer site.pp; transfer custom global role, profile and modified nodejs modules (all included in project repo)
   mkdir -p /etc/puppet/environments/development/{manifests,modules}
   cp /vagrant/development/manifests/site.pp /etc/puppet/environments/development/manifests
-  cp -r /vagrant/modules/{role,profile,customnpm} /etc/puppet/modules
+  cp -r /vagrant/modules/{role,profile,custom_node_rpm} /etc/puppet/modules
     
   # Install shared modules from Puppet Forge
   sudo puppet module install -i /etc/puppet/modules puppetlabs-ntp
