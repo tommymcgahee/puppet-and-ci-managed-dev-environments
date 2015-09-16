@@ -24,37 +24,24 @@ class profile::grunt-foundation {
       before   => Package['bower'],
    } 
    
-   ## CentOS 6 nodesource repo includes <= node.js 0.10.x and we need 0.12.x  
-   
-   #class { 'customnpm':
-   #  ensure => 'present', 
-   #  require => Package['nodejs-0.12.7-1nodesource.el6.x86_64'],
-   #}
-
-   include customnpm
-
-   package { 'nodejs-0.12.7-1nodesource.el6.x86_64': 
-      ensure   =>  'present',
-      provider =>  'rpm',
-      source   =>  'https://rpm.nodesource.com/pub_0.12/el/6/x86_64/nodejs-0.12.7-1nodesource.el6.x86_64.rpm',
-   }
+   include custom_node_npm
 
    package { 'bower': 
       ensure   => 'present',
       provider => 'npm', 
-      require  => Class['customnpm'],
+      require  => Class['custom_node_npm'],
    }
 
    package { 'grunt-cli': 
       ensure   => 'present',
       provider => 'npm', 
-      require  => Package['bower'],
+      require  => Class['custom_node_npm'],
    }
 
    package { 'yo': 
       ensure   => 'present',
       provider => 'npm', 
-      require  => Package['grunt-cli'],
+      require  => Class['custom_node_npm'],
    }
  
    package { 'generator-zf5':
