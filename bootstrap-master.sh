@@ -9,12 +9,16 @@ else
   
   sudo /usr/bin/puppet resource service iptables ensure=stopped enable=false
   
-  # Install shared modules from Puppet Forge
-    sudo puppet module install -i /etc/puppet/modules puppetlabs-ntp
-    sudo puppet module install -i /etc/puppet/modules treydock-gpg_key    
-    sudo puppet module install -i /etc/puppet/modules puppetlabs-apache
-    sudo puppet module install -i /etc/puppet/modules mayflower-php
+  sudo cp /vagrant/development/manifests/site.pp /etc/puppet/environments/development/manifests
+  sudo cp -r /vagrant/modules/{role,profile,custom_node_npm} /etc/puppet/modules
+  sudo mkdir /etc/puppet/environments/common/{manifests,modules}
   
-    sudo chmod 444 /etc/puppet/modules/yum/metadata.json
+  # Install shared modules from Puppet Forge
+  sudo puppet module install -i /etc/puppet/modules puppetlabs-ntp
+  sudo puppet module install -i /etc/puppet/modules treydock-gpg_key    
+  sudo puppet module install -i /etc/puppet/modules puppetlabs-apache
+  sudo puppet module install -i /etc/puppet/modules mayflower-php
+  
+  sudo chmod -R 775 /etc/puppet/modules/yum
    
 fi
