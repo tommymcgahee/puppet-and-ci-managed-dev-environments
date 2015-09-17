@@ -1,6 +1,5 @@
 class role::iws-dev {
    include profile::base
-   include profile::web-server
    include profile::grunt-foundation
 }
 
