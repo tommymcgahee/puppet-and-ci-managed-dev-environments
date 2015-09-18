@@ -23,6 +23,6 @@ else
   
   sudo chmod -R 775 /etc/puppet/modules/yum
   
-  echo $'Defaults:foreman-proxy !requiretty\nforeman-proxy ALL = NOPASSWD: /usr/bin/puppet kick *' | sudo tee -a /etc/sudoers
+  echo $'\nDefaults:foreman-proxy !requiretty\nforeman-proxy ALL = NOPASSWD: /usr/bin/puppet kick *' | sudo tee -a /etc/sudoers
   
 fi
