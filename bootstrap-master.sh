@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if which puppet > /dev/null 2>&1; then
   echo 'Puppet Installed.'
 else
@@ -20,5 +22,7 @@ else
   sudo puppet module install -i /etc/puppet/modules mayflower-php
   
   sudo chmod -R 775 /etc/puppet/modules/yum
-   
+  
+  echo $'Defaults:foreman-proxy !requiretty\nforeman-proxy ALL = NOPASSWD: /usr/bin/puppet kick *' | sudo tee -a /etc/sudoers
+  
 fi
