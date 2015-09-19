@@ -13,6 +13,7 @@ else
   echo '192.168.50.2  puppetmaster.development.vbox  puppetmaster' | sudo tee --append /etc/hosts 2> /dev/null && \
   echo '192.168.50.3  tommys-mbp.development.vbox    tommys-mbp'   | sudo tee --append /etc/hosts 2> /dev/null && \
   echo '192.168.50.3  dhcp-82-204.development.vbox   dhcp-82-204'  | sudo tee --append /etc/hosts 2> /dev/null && \
+  echo '192.168.50.4  production.vbox                production'   | sudo tee --append /etc/hosts 2> /dev/null && \
   
   sudo /usr/bin/puppet resource service iptables ensure=stopped enable=false
   
