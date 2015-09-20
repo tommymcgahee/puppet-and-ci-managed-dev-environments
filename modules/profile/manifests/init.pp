@@ -51,14 +51,16 @@ class profile::grunt-foundation {
    }
    
    exec { 'npm install':
+      path    => '/usr/bin/npm',
       command => 'npm install', 
       cwd     => '/vagrant/www',
-      require => Class['custom_node_npm'], Package['bower', 'grunt-cli', 'yo', 'generator-zf5'], 
+      require => [Class['custom_node_npm'], Package['bower', 'grunt-cli', 'yo', 'generator-zf5']], 
       creates => '/vagrant/www/node_modules', 
       timeout => 1800,   	  
    }
    
    exec { 'bower install':
+      path    => '/usr/bin/bower',
       command => 'bower install', 
       cwd     => '/vagrant/www/app',
       require => Exec['npm install'],
