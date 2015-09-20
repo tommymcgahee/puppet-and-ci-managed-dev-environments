@@ -17,14 +17,14 @@ class profile::web-server {
 }
 
 class profile::grunt-foundation {
-
+   
+   include custom_node_npm
+   
    package { 'git':
       ensure   => 'present',
       provider => 'yum',
       before   => Package['bower'],
    } 
-   
-   include custom_node_npm
 
    package { 'bower': 
       ensure   => 'present',
@@ -35,13 +35,13 @@ class profile::grunt-foundation {
    package { 'grunt-cli': 
       ensure   => 'present',
       provider => 'npm', 
-      require  => Class['custom_node_npm'],
+      require  => Package['bower'],
    }
 
    package { 'yo': 
       ensure   => 'present',
       provider => 'npm', 
-      require  => Class['custom_node_npm'],
+      require  => Package['bower'],
    }
  
    package { 'generator-zf5':
@@ -49,5 +49,21 @@ class profile::grunt-foundation {
       provider => 'npm', 
       require  => Package['yo']
    }
+   
+   exec { 'npm install':
+      command => 'npm install', 
+      cwd     => '/vagrant/www',
+      require => Class['custom_node_npm'], Package['bower', 'grunt-cli', 'yo', 'generator-zf5'], 
+      creates => '/vagrant/www/node_modules', 
+      timeout => 1800,   	  
+   }
+   
+   exec { 'bower install':
+      command => 'bower install', 
+      cwd     => '/vagrant/www/app',
+      require => Exec['npm install'],
+      creates => '/vagrant/www/app/bower_components', 
+      timeout => 1800,   	  
+   }   
 }
 
