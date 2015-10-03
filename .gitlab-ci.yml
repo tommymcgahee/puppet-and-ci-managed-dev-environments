@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.12'
+before_install:
+- npm install -g bower grunt-cli
+- bower install
+install: npm install
+notifications:
+  hipchat:
+    rooms:
+      secure: baYg0pbR45+UMWGZ8Z9bXUavI1BhkRd0jp/sZ3ppFcvHrj3VkJ1Pa3H5mUQZYKuJqsIythHPmiypjAPslv7ypESCkn8Y1q+k7zKO9zTwqeIOlwH8volYUx2YB7JP9vyGsVIAHpu8eO9XSQkldv9pul7QH6gSkhybKSVaes8x9jwMqS/dZ9HYA84LU0zq/QNKl3Nc/KKMnCwWf4C1/HHuCWTaqnqGKkonNXjhnAb453vypxGGW0EgQs/NmgTjyCE3ydUYLcnRR+Y/+49egJQd6819q/u5aZWLjKR25hGbS2FcHegj+J59J7kpvPuEmFu/Z3O4WEcr9ogt4caX+5ACSs72KpUIaryOSE5OU5vKmydWEkBVj7R8H8Vghl1RiroLNg48jtznfVn0EwAKi5dCRTsdlnF4yLyrvvilmGfkGvmx8PcRqoTpxLDAODPyRWb8dRPj5v3GACMhssOP38F+nboMbToodnXQLVrPDSIGqb+cgiX1wey7ygPrYziPon4ezgcRThzORPWGv5PXVZc68rqKAYWybvCnBkQxrrGDbacRZHyNH/KT13FTht66WjtrgUy97vrrUa03xonq6HB+ETU3uJhjOuz01Z5Sl9/H0JXYegtKTEvZxxXUI8UnfyNPXfIef5ajgeqjEZVsxggvNliXsJFN5TFFhsZf12p9yeQ=
