@@ -1,5 +1,9 @@
-node_modules
 .tmp
+.sass-cache
+.jshintrc
+.bowerrc
+.gitlab-ci.yml
+node_modules
 app/bower_components
 app/css/app.css
-.sass-cache
+dist
