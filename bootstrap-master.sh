@@ -12,8 +12,9 @@ else
   # Set hostnames and IPs
   echo '192.168.50.2  puppetmaster.development.vbox  puppetmaster' | sudo tee --append /etc/hosts 2> /dev/null && \
   echo '192.168.50.3  tommys-mbp.development.vbox    tommys-mbp'   | sudo tee --append /etc/hosts 2> /dev/null && \
+  echo '192.168.50.3  tommys-mbp-2.development.vbox  tommys-mbp-2' | sudo tee --append /etc/hosts 2> /dev/null && \
   echo '192.168.50.3  dhcp-82-204.development.vbox   dhcp-82-204'  | sudo tee --append /etc/hosts 2> /dev/null && \
-  echo '192.168.50.4  production.vbox                production'   | sudo tee --append /etc/hosts 2> /dev/null && \
+  echo '192.168.50.4  production.vbox   			 production'   | sudo tee --append /etc/hosts 2> /dev/null && \
   
   sudo /usr/bin/puppet resource service iptables ensure=stopped enable=false
   
@@ -30,5 +31,4 @@ else
   sudo chmod -R 775 /etc/puppet/modules/yum
   
   echo $'\nDefaults:foreman-proxy !requiretty\nforeman-proxy ALL = NOPASSWD: /usr/bin/puppet kick *' | sudo tee -a /etc/sudoers
-  
 fi
