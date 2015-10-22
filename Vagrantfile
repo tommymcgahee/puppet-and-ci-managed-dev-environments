@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.require_version ">= 1.5.0"
+#test push
 #require 'vagrant-hosts'
 #require 'vagrant-auto_network'
 #require 'vagrant-hostmanager'
