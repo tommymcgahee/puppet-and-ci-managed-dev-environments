@@ -63,7 +63,7 @@ class profile::grunt-foundation {
    
    exec { 'bower install':
       path        => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
-      command     => 'bower install', 
+      command     => 'bower install --config.interactive=false', 
       cwd         => '/vagrant',
       user        => 'vagrant',
       environment => 'HOME=/home/vagrant',
