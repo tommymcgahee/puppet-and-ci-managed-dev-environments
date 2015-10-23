@@ -12,7 +12,7 @@ class profile::web-server {
 
    apache::vhost { $::fqdn:
       port    => '80',
-      docroot =>  '/vagrant/www/app',
+      docroot =>  '/vagrant/app',
    }
 }
 
@@ -53,10 +53,10 @@ class profile::grunt-foundation {
    exec { 'npm install':
       path        => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
       command     => 'npm install', 
-      cwd         => '/vagrant/www',
+      cwd         => '/vagrant/app',
       environment => 'HOME=/home/vagrant',
       require     => [Class['custom_node_npm'], Package['bower', 'grunt-cli', 'yo', 'generator-zf5']], 
-      creates     => '/vagrant/www/node_modules', 
+      creates     => '/vagrant/node_modules', 
       logoutput   => on_failure,
       timeout     => 1800,   	  
    }
@@ -64,11 +64,11 @@ class profile::grunt-foundation {
    exec { 'bower install':
       path        => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'],
       command     => 'bower install', 
-      cwd         => '/vagrant/www',
+      cwd         => '/vagrant/app',
       user        => 'vagrant',
       environment => 'HOME=/home/vagrant',
       require     => Exec['npm install'],
-      creates     => '/vagrant/www/app/bower_components', 
+      creates     => '/vagrant/app/bower_components', 
       logoutput   => on_failure,
       timeout     => 1800,   	  
    }   
