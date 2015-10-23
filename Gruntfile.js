@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 					base: '<%= app %>/',
 					open: true,
 					livereload: true,
-					hostname: '127.0.0.1'
+					hostname: '192.168.50.3'
 				}
 			},
 			dist: {
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
 					open: true,
 					keepalive: true,
 					livereload: false,
-					hostname: '127.0.0.1'
+					hostname: '192.168.50.3'
 				}
 			}
 		},
