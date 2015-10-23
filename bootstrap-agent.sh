@@ -27,7 +27,7 @@ else
   echo '192.168.50.4  production.vbox   			 production'   | sudo tee --append /etc/hosts 2> /dev/null && \
   
   # Change directories to Grunt project folder for Vagrant user on shell start
-  echo "cd /vagrant/app/" >> /home/vagrant/.bash_profile
+  echo "cd /vagrant/" >> /home/vagrant/.bash_profile
       
   # Start Puppet and request cert
   sudo puppet resource service puppet ensure=running enable=true  
