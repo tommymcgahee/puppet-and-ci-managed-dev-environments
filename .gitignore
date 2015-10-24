@@ -3,6 +3,8 @@
 .jshintrc
 .bowerrc
 .gitlab-ci.yml
+.travis/deploy_key
+.travis/deploy_key.pub
 node_modules
 app/bower_components
 app/css/app.css
