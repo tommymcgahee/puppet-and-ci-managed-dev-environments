@@ -21,6 +21,8 @@ after_success:
   - git remote add production deploy@tommymcgahee.com:interview
   - cd dist
   - git add * 
-  - git commit -m "Deployed to production server"
   - git config --global push.default simple
-  - git push --force --quiet production master
+  - git config --global user.email "tommy.mcgahee@gmail.com"
+  - git config --global user.name "deploy"
+  - git commit -m "Deployed to production server"
+  - git push --force --quiet production
