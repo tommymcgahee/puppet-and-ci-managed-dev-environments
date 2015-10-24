@@ -25,4 +25,4 @@ after_success:
   - git config --global user.email "tommy.mcgahee@gmail.com"
   - git config --global user.name "deploy"
   - git commit -m "Deployed to production server"
-  - git push --force --quiet production
+  - git push --force --quiet production master > /dev/null
