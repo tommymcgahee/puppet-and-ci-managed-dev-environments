@@ -17,4 +17,5 @@ install:
 
 deploy: 
 	skip_cleanup: true
+	provider: script
 	script: .travis/deploy.sh
