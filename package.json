@@ -31,6 +31,6 @@
     "grunt-newer": "~1.1.1"
   }, 
   "scripts": {
-	  "test": "grunt publish",
+	  "test": "grunt publish"
   }
 }
