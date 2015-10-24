@@ -20,4 +20,4 @@ after_success:
   - ssh-add .travis/deploy_key
   - git remote add production deploy@tommymcgahee.com:interview
   - git config --global push.default simple
-  - git push production
+  - git push production master
