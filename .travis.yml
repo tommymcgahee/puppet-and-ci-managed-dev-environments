@@ -14,3 +14,7 @@ install:
 - npm install -g bower grunt-cli
 - bower install
 - npm install
+
+deploy: 
+	skip_cleanup: true
+	script: .travis/deploy.sh
