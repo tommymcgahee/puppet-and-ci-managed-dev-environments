@@ -19,5 +19,8 @@ after_success:
   - chmod 600 .travis/deploy_key # this key should have push access
   - ssh-add .travis/deploy_key
   - git remote add production deploy@tommymcgahee.com:interview
+  - cd dist
+  - git add * 
+  - git commit -m "Deployed to production server"
   - git config --global push.default simple
-  - git push production master
+  - git push --force --quiet production master
