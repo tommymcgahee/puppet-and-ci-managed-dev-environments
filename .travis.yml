@@ -15,9 +15,9 @@ install:
 - bower install
 - npm install
 after_success: 
-	- eval "$(ssh-agent -s)"
-	- chmod 600 .travis/deploy_key 
-	- ssh-add .travis/deploy_key
+  - eval "$(ssh-agent -s)"
+  - chmod 600 .travis/deploy_key 
+  - ssh-add .travis/deploy_key
 deploy:
   skip_cleanup: true
   provider: script
