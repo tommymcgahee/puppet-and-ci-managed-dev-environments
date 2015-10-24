@@ -15,12 +15,12 @@ before_install:
 addons:
   ssh_known_hosts: tommymcgahee.com
 after_success:
-  - eval "$(ssh-agent -s)" #start the ssh agent
-  - chmod 600 .travis/deploy_key # this key should have push access
+  skip_cleanup: true
+  - eval "$(ssh-agent -s)"
+  - chmod 600 .travis/deploy_key 
   - ssh-add .travis/deploy_key
   - git remote add production deploy@tommymcgahee.com:interview
-  - cd dist
-  - git add * 
+  - git add dist/*
   - git config --global push.default simple
   - git config --global user.email "tommy.mcgahee@gmail.com"
   - git config --global user.name "deploy"
