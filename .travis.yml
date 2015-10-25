@@ -1,10 +1,6 @@
 language: node_js
 node_js:
 - '0.12'
-notifications:
-  hipchat:
-    rooms:
-      secure: ueRI9dYW21YxALW687RJmSgTe5llVH/ilthNsiiymI/eubJ1hKeAhmfV2BLpa4+fvb9riPv9LR7xt8FbkZzeV6YO7Q+7ka8xgH0KBJWZfjWcEH2uk3wATG9ezzmMJ2A8/cnicLO6d3V0M08V75KsjJtROhdy6ADFb4M7ae7kjjrA5COko2HTempQk2sLnO+T0cu791wAOBx3NlhFWLvTsoA8yXLP2U63fnlY9sS69rUjEROuy5xu3aZKdZEE6LlMSNgCT6eUNwlVDKeqfp0GlkeqDB0ZzaWwC9oQQqEee/R3lpyyjdqRVkwa8a4Uv78/wQ2/fz775GL7aK6d0BBeKLARH0VvaX0e81yktHcOPxtkvtOv/yIa/QTbgjn82qYZho7TfEiZ7WqsVxMJi+aOoteFXaBhngDMDXRA2073+ksMwLhP46OlDiwaELZO/MeEA5K5hkQv0lEyR1TZvjo5g6CGMKe5bLDfabpV2V79veoSbkNw5N8oS9Jw8Wje2xKcgkHTP1yl6TkUk2GwvUIMwvaG7TUXzDgqxYOC5KR7NfpvW7ommdnUQPY6bt75bC0PQFZbRy0dZXXNZth6fxHgBWkvCt0DD4lo28ylbFXbzQlrvSwuBWDabbeSdihrZ8jC+EHgPFMpFbWNEOYZf8mKikZBUkTuxxNYS7jqtPvOsXE=
 addons:
   ssh_known_hosts: tommymcgahee.com
 before_install:
@@ -14,11 +10,15 @@ install:
 - npm install -g bower grunt-cli
 - bower install
 - npm install
-after_success: 
-  - eval "$(ssh-agent -s)"
-  - chmod 600 .travis/deploy_key 
-  - ssh-add .travis/deploy_key
+after_success:
+- eval "$(ssh-agent -s)"
+- chmod 600 .travis/deploy_key
+- ssh-add .travis/deploy_key
 deploy:
   skip_cleanup: true
   provider: script
   script: .travis/deploy.sh
+notifications:
+  hipchat:
+    rooms:
+      secure: YaFlKYartY4C8d6dzRepRNCo3ZR7UhpKtkUFJXU+no8Tzjr+/2I5620rn3o2zuN//sQ+dG+BB0eIomiOjBvtwRxDD9qTngEhcabAArwYGrM1wmlYr2tIfCDRFd+R2u6P24XgoLjTn2aJNCmvAEpKE5/XdWJQwI00OmyK7N+JzZayTAx6r79Y5rpHscs0lSZb2LvsGUrOhbNyQ+6nx2R3nHX/vAi2D29KpgHIO2qT1RaZD5IV9wsUefEMXdfnOUJqrTNE1oOkORgPYzkNq32bqQ27qx1zmEG21x2/CUBUWdAHeqrm+reuLpOXkPhgaeYhER4LUQKv6Q/3+d8Zd4PWnl7LX5elUvKTH76CkvNC8ZHgP+lWoWcm6TIMG1zLISZ1C+j4oWFNKxnTRfSke/r7U5N+3islM+pKHIGSpx/14NbtOgQQSLOMvTkSu1vtFwyw+U7WFJMJc43I8cmsN1bRPHZZV1lftPOF03kt1PxbdG7MVuoMCa5thJNyJxtbC/0fr+XNqNggvJXmG7g1fQqqZwQYCYF7m+agvW+YAsI9txUqaK5b2ZT2fcjS8VU2CD4pOvLhuEVFVuNJ2wMntPKbVGa3L5579o9QCSw2FfQKcL2lkP2OUecsphWPROn7gjOWcp+7/dHxypBB8gysZW1imP42OPHcJX8CCRLsDyEAT3w=
