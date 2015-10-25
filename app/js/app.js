@@ -4,7 +4,7 @@ var app = (function(document, $) {
 	var docElem = document.documentElement,
 		_userAgentInit = function() {
 			docElem.setAttribute('data-useragent', navigator.userAgent);
-	
+		},
 		_init = function() {
 			$(document).foundation();
             // needed to use joyride
