@@ -1,4 +1,4 @@
-class role::iws-dev {
+class role::web-dev {
    include profile::base
    include profile::grunt-foundation
 }
