@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "",
   "homepage": "",
+  "private": true,
   "author": {
     "name": "",
     "email": ""
@@ -29,7 +30,7 @@
     "grunt-usemin": "~3.0.0",
     "grunt-contrib-imagemin": "0.9.4",
     "grunt-newer": "~1.1.1"
-  }, 
+  },
   "scripts": {
 	  "test": "grunt publish"
   }
