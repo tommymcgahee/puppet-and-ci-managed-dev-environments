@@ -2,10 +2,11 @@
 .sass-cache
 .jshintrc
 .bowerrc
-.gitlab-ci.yml
+.vagrant
 .travis/deploy_key
 .travis/deploy_key.pub
 node_modules
+npm-debug.log
 app/bower_components
 app/css/app.css
 dist
