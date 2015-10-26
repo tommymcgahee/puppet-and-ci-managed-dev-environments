@@ -1,28 +1,24 @@
 language: node_js
-node_js: 
-  - '0.12'
-notifications: 
-  hipchat: 
-    notify: true
-    on_success: always
-    rooms: 
+node_js:
+- '0.12'
+notifications:
+  hipchat:
+    rooms:
       secure: TOHzcKwrEBN2U7p+w/nLxHoDW6xp+toNeaF2y9VTTnYqDwNFeNYgqjdmcfXd9QxQGGYiA1LVN+VLanjMzRsLe+nzVENvMNmkJdm8nJuphgF5lM784NUGIJuPwM3WsmSfxduUHFBFMIN/i5ZyH7eyHFOtpnl0lBmWFh/OE/SRwqthf6/N1l5GKW4L6pwBL3L6Rl10nCu8kJBWU0t92NzBkL+RLEO0xBm2szmIIPUVgt9CjR1gKsajFmAm4DANaVqYGwtUMuJn95yqSh+c4GRMN2Ox/xyrct7AYQlgSpzR+yVsvBveaVtmwtu0+olnp+HJqiFllAl1eGnihyGXW4LnbH9LCUBtl9NoxaYkhGX/4FMDra9JWAV0/WHVoVWffHtw++YTVsHAs0FhhLDztCSPOAuE1KGDEQNzjbsVABrQwiIkVkHzfe0ZLERI+lcPCd9kL+F/pqlXzvyBQTEB36WM4vbQ5daU/tX/yLT1EuppnS91wBkFu/+jQ+jkA6E5Bjrnpk9z6Rt1SahCsKbPIQzayKgZrepRG5ZapZ4ZBbzMKM6MchDp8abhXbwugvY/sy5Y/6tIEx9Dxw+UiFWHTgFRdQWysS0EyOO68rmAI7FWZgMAhaQf6+DoQ78jrwOsxhOXEZtyCSLRF0Si1qJ1gTcq0rdBz469otN3OXxK3Chc3oU=
-    template: 
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
-addons: 
+addons:
   ssh_known_hosts: tommymcgahee.com
-before_install: 
-  - openssl aes-256-cbc -K $encrypted_d7b7c69cad8c_key -iv $encrypted_d7b7c69cad8c_iv 
-    -in .travis/deploy_key.enc -out .travis/deploy_key -d
-install: 
-  - npm install -g bower grunt-cli
-  - bower install
-  - npm install
+before_install:
+- openssl aes-256-cbc -K $encrypted_717d6877ac26_key -iv $encrypted_717d6877ac26_iv
+  -in .travis/deploy_key.enc -out .travis/deploy_key -d
+install:
+- npm install -g bower grunt-cli
+- bower install
+- npm install
 after_success: 
   - eval "$(ssh-agent -s)"
-  - chmod 600 .travis/deploy_key
+  - chmod 600 .travis/deploy_key 
   - ssh-add .travis/deploy_key
-deploy: 
+deploy:
+  skip_cleanup: true
   provider: script
   script: .travis/deploy.sh
-  skip_cleanup: true
