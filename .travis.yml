@@ -1,11 +1,15 @@
 language: node_js
 node_js:
 - '0.12'
+notifications:
+  hipchat:
+    rooms:
+      secure: dEWw2wIoVFH0TtVhOaAzsncCJ4IvWOKUaUiJVKsZ1rpsscP8ZtdQ6/iubkzapOj37l5/vtCSp3UoXJde+Hlq182jvGG5FzItuTvXZEaklzgwNZnlW3+xoIQfBJW0TD7pUqKF0DVyJ6Tr8xzQEEW5lWv0QM4Jc/cnqBIelRExk7qCAf3qBUH0Weg/maWWrC7p78b9Y3ryc794WDidOwKUC0ozuKzp//UG5ubaT3NYNrdvePqG97X3kU27iUllzlkbANltvkiTu28JWMq0gXFIEoNYYwxdYrVaZlzqmaGiZyKwIV3b0QPdM4my/8B45o//MVaEjmvY86JdO0VFVRMSFJz1jFU2m/iXNuz4nLtTlTVHkWV9n39VyJ01TYH8uPYCUjUafBcwWUzHjQSykR+W4iR9vnhBuylowvq/EARJud6P2kaH76+17l974tK8m6w62Ascsa8L0C0acwjPUHZzxHyhBgmOY2qAWxk07MQIplIM/jpe7E7QiofqQHqtvvLpjouKmqCEqtFjux4Iu6JZYDc9+yOLJPjH4SqEcdkXn+1al1jG1mAADtaw9ycUuh1tCykEFLRI9S+yryOVWLA1Xiy1ctpUNTwqpDfJjq5zqsccvceif3zjGQMLCimIdYbcrWGMoImZwIq2Ry0VOOmuDX/ZVpCT3X7cJzhPGOySwWM=
 addons:
   ssh_known_hosts: tommymcgahee.com
 before_install:
-- openssl aes-256-cbc -K $encrypted_717d6877ac26_key -iv $encrypted_717d6877ac26_iv
-  -in .travis/deploy_key.enc -out .travis/deploy_key -d
+- openssl aes-256-cbc -K $encrypted_d7b7c69cad8c_key -iv $encrypted_d7b7c69cad8c_iv
+  -in deploy_key.enc -out deploy_key -d
 install:
 - npm install -g bower grunt-cli
 - bower install
@@ -18,7 +22,3 @@ deploy:
   skip_cleanup: true
   provider: script
   script: .travis/deploy.sh
-notifications:
-  hipchat:
-    rooms:
-      secure: dEWw2wIoVFH0TtVhOaAzsncCJ4IvWOKUaUiJVKsZ1rpsscP8ZtdQ6/iubkzapOj37l5/vtCSp3UoXJde+Hlq182jvGG5FzItuTvXZEaklzgwNZnlW3+xoIQfBJW0TD7pUqKF0DVyJ6Tr8xzQEEW5lWv0QM4Jc/cnqBIelRExk7qCAf3qBUH0Weg/maWWrC7p78b9Y3ryc794WDidOwKUC0ozuKzp//UG5ubaT3NYNrdvePqG97X3kU27iUllzlkbANltvkiTu28JWMq0gXFIEoNYYwxdYrVaZlzqmaGiZyKwIV3b0QPdM4my/8B45o//MVaEjmvY86JdO0VFVRMSFJz1jFU2m/iXNuz4nLtTlTVHkWV9n39VyJ01TYH8uPYCUjUafBcwWUzHjQSykR+W4iR9vnhBuylowvq/EARJud6P2kaH76+17l974tK8m6w62Ascsa8L0C0acwjPUHZzxHyhBgmOY2qAWxk07MQIplIM/jpe7E7QiofqQHqtvvLpjouKmqCEqtFjux4Iu6JZYDc9+yOLJPjH4SqEcdkXn+1al1jG1mAADtaw9ycUuh1tCykEFLRI9S+yryOVWLA1Xiy1ctpUNTwqpDfJjq5zqsccvceif3zjGQMLCimIdYbcrWGMoImZwIq2Ry0VOOmuDX/ZVpCT3X7cJzhPGOySwWM=
