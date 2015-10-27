@@ -1,0 +1,6 @@
+node_modules
+README.md
+hubot.log
+hubot.pid
+.DS_Store*
+.hubot_history
