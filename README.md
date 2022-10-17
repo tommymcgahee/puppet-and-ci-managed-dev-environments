@@ -45,7 +45,7 @@ Provides all needed files to stand up a local, Cent OS 6 VM as a Puppet Agent wi
 Version controlled Hubot configuration.
 
 ### Workflow
-![Image of project workflow. Steps include Remote Git Repo, Developer Machine, Local Vagrant VM - Puppet Agent, CI and Deployment, Production, HIpChat, and Status Page](https://drive.google.com/uc?export=view&id=0B4z1zb2PaaMqX0lrRDA1QnFfbjQ)  
+![Image of project workflow. Steps include Remote Git Repo, Developer Machine, Local Vagrant VM - Puppet Agent, CI and Deployment, Production, HIpChat, and Status Page](https://raw.githubusercontent.com/tommymcgahee/puppet-and-ci-managed-dev-environments/master/flowchart-github.jpg)  
 
 ### License
 
